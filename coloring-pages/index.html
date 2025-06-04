@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫咪素描涂色坊 - CatSketch Art</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-montserrat">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-kalam font-bold text-gray-700 hover:text-gray-900 transition-colors" data-section="home">猫咪素描涂色坊</a>
+            <div class="space-x-6">
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 transition-colors" data-section="home">首页</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 transition-colors" data-section="convert">开始转换</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 transition-colors" data-section="gallery">灵感画廊</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <section id="home" class="page-section">
+            <div class="text-center py-16">
+                <h1 class="text-5xl font-kalam font-bold text-gray-800 mb-6">将猫咪照片化为艺术素描</h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">上传您的爱猫照片，一键生成独一无二的素描风格涂色页，开启您的创意涂色之旅。</p>
+                <button id="cta-to-convert" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-transform transform hover:scale-105 text-lg">
+                    <i data-lucide="image-plus" class="inline-block mr-2 h-5 w-5"></i>立即创作
+                </button>
+            </div>
+            <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://r2.flowith.net/files/o/1748953191155-high_quality_artistic_ragdoll_cat_closeup_photo_index_2@1024x1024.png" alt="可爱猫咪原图示例" class="w-full h-auto object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://r2.flowith.net/files/o/1748953558911-artistic_detailed_pencil_sketch_of_ragdoll_cat_index_0@1024x1024.png" alt="猫咪素描效果示例" class="w-full h-auto object-cover">
+                </div>
+            </div>
+             <div class="text-center mt-16 py-10 bg-white rounded-lg shadow-lg">
+                <h2 class="text-3xl font-kalam font-semibold text-gray-700 mb-4">为何选择我们？</h2>
+                <div class="grid md:grid-cols-3 gap-8 px-8 text-gray-600">
+                    <div>
+                        <i data-lucide="wand-2" class="h-12 w-12 mx-auto mb-3 text-gray-500"></i>
+                        <h3 class="text-xl font-semibold mb-2">智能转换</h3>
+                        <p>轻松将照片转换为精美素描。</p>
+                    </div>
+                    <div>
+                        <i data-lucide="palette" class="h-12 w-12 mx-auto mb-3 text-gray-500"></i>
+                        <h3 class="text-xl font-semibold mb-2">个性涂色</h3>
+                        <p>创造属于您和爱猫的独特艺术品。</p>
+                    </div>
+                    <div>
+                        <i data-lucide="image" class="h-12 w-12 mx-auto mb-3 text-gray-500"></i>
+                        <h3 class="text-xl font-semibold mb-2">丰富图库</h3>
+                        <p>获取灵感，发现更多猫咪素描。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="convert" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-kalam font-bold text-gray-800">上传猫咪照片，见证奇迹</h2>
+                <p class="text-lg text-gray-600 mt-2">选择一张您心爱猫咪的照片，我们将为您呈现素描艺术效果。</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-3xl mx-auto">
+                <div class="mb-8 text-center">
+                    <label for="image-upload" class="cursor-pointer bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 inline-flex items-center">
+                        <i data-lucide="upload-cloud" class="mr-2 h-5 w-5"></i> 选择图片
+                    </label>
+                    <input type="file" id="image-upload" class="hidden" accept="image/*">
+                    <p id="file-name" class="mt-3 text-sm text-gray-500">未选择任何文件</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center font-kalam">原始图片</h3>
+                        <div id="original-image-preview" class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300 overflow-hidden">
+                            <i data-lucide="image-off" class="h-16 w-16 text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center font-kalam">素描效果</h3>
+                        <div id="sketch-image-preview" class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300 overflow-hidden">
+                             <i data-lucide="edit-3" class="h-16 w-16 text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm text-gray-500 text-center">提示：此为演示版本。上传图片后将展示预设的素描效果。</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-kalam font-bold text-gray-800">灵感画廊</h2>
+                <p class="text-lg text-gray-600 mt-2">欣赏由我们的用户和艺术家创作的精美猫咪素描作品。</p>
+            </div>
+            <div id="gallery-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-kalam text-lg">&copy; 2025 猫咪素描涂色坊. 版权所有.</p>
+            <p class="text-sm mt-2">用爱与艺术描绘您的猫咪伙伴。</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
